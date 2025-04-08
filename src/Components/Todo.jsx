@@ -3,10 +3,7 @@ import "./Todo.css"
 
 const Todo = () => {
 
-    const [todos, setTodos] = useState([
-        {heading: 'Mercado', listInputs: ['tomate', 'arroz']},
-        {heading: 'Backlog', listInputs: []},
-    ]);
+    const [todos, setTodos] = useState([]);
     const [headingInput, setHeadingInput] = useState('');
     const [listInputs, setListInputs] = useState({});
 
