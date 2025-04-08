@@ -31,6 +31,12 @@ const Todo = () => {
             setListInputs({...listInputs, [index]: ''})
         }
     }
+    
+    const handleDeleteTodo = (index) => {
+        const newTodos = [...todos];
+        newTodos.splice(index, 1);
+        setTodos(newTodos);
+    }
 
     return (
         <>
@@ -55,8 +61,17 @@ const Todo = () => {
                         <div key={index} className='todo-card'>
                             <div className='heading_todo'>
                                 <h3>{todo.heading}</h3>
-                                <button className='delete-button-heading'>Delete List</button>
+                                <button className='delete-button-heading' onClick={() => handleDeleteTodo(index)}>[x] List</button>
                             </div>
+                            <ul>
+                                {
+                                    todo.listInputs.map((item, itemIndex) => (
+                                        <li key={itemIndex} className="todo_inside_list">
+                                            <p>{item}</p>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
                             <div className='add_list'>
                                 <input
                                 type="text"
